@@ -5,7 +5,7 @@ from src.customer import Customer
 
 class TestPub(unittest.TestCase):
     def setUp(self):
-        self.customer = ("Fernando", 20)
+        self.customer = Customer("Fernando", 20, 27)
         self.drink1 = Drinks("Lager", 5)
         self.drink2 = Drinks("Shot", 6)
         self.drinklist = [self.drink1, self.drink2]
@@ -24,3 +24,6 @@ class TestPub(unittest.TestCase):
         self.pub.increase_till(5)
         self.assertEqual(1005, self.pub.till)
 
+    def test_check_age(self):
+        result = self.customer.check_age(20)
+        self.assertEqual(True, result)
