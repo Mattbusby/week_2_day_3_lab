@@ -1,9 +1,11 @@
 import unittest
 from src.pub import Pub
 from src.drinks import Drinks
+from src.customer import Customer
 
 class TestPub(unittest.TestCase):
     def setUp(self):
+        self.customer = ("Fernando", 20)
         self.drink1 = Drinks("Lager", 5)
         self.drink2 = Drinks("Shot", 6)
         self.drinklist = [self.drink1, self.drink2]
@@ -18,7 +20,7 @@ class TestPub(unittest.TestCase):
     def test_pub_has_drinks(self):
         self.assertEqual(2, len(self.pub.drinks))
 
+    def test_increase_till(self):
+        self.pub.increase_till(5)
+        self.assertEqual(1005, self.pub.till)
 
-    # def test_increase_till(self):
-    #     self.pub.increase_till(2.50)
-    #     self.assertEqual(102.50, self.pub.till)
